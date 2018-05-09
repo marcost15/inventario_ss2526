@@ -1,0 +1,89 @@
+﻿{include file="cabecera.html" title="SS2526 - Asignar Equipos"}
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<table border="0">
+    <tr>
+	<td valign="top">
+<table border="0">
+<tbody>
+<th><font size=4>Asignacion de Equipos</font></th> 
+ <tr>
+      <td>
+      
+<table border="0">
+  <tbody>
+    <tr>
+      <th align="right">Entrega:</th><td>{$smarty.session.asignacion.entrega_nombre}</td>
+	</tr>
+	<tr>
+      <th align="right">Recibe:</th><td>{$smarty.session.asignacion.recibe_nombre}</td>
+	</tr>
+	<tr>
+      <th align="right">Observación:</th><td>{$smarty.session.asignacion.observacion}</td>
+	</tr>
+	<tr>
+	  <th>&#160;</th><td><a href="#" onClick="flash('forma2','forma1')"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton_act.gif" onmouseout='return nd();'/></a></td>
+    </tr>
+  </tbody>
+</table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<table class="enhancedtable" border="1" cellspacing="0" cellpadding = "3">
+  <thead>
+    <tr>
+	  <td colspan="4" align="center"><font size=4><strong>Equipos</strong></font></td>
+	</tr>
+	<tr>
+      <th>Articulo</th>
+      <th>Cantidad</th>
+	  <th>Serial</th>
+	  <th><a href="#" onClick="flash('forma1','forma2')"><img onmouseover='overlib("<strong>Agregar &#237;tem</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="entrega" value=$smarty.session.entreg_equipos} 
+{section name=i loop=$entrega}
+    <tr>
+      <td>{$entrega[i].articulo_nombre}</td>
+      <td>{$entrega[i].cantidad}</td>
+	  <td>{$entrega[i].serial}</td>
+	  <td><a href="?accion=eliminar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}
+	<tr>
+      <td rowspan="1" align="right" colspan="1" rowspan="1"><strong>Total de Equipos:</strong></td>
+      <td rowspan="1" align="left" colspan="3" rowspan="1"><strong>{$smarty.session.total_art}</strong></td>
+    </tr>  	
+  </tbody>
+</table>
+{if $items>0 and $items1>0}
+<font size="3"><strong><a href="registrar_asignacion2.php" onClick="return confirm('Si los datos est&#225;n correctos pulse OK, de lo contrario Cancele y corrija')">Asignar los Equipos<img onmouseover='overlib("<strong>Asignar</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></strong></font>
+{/if}
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+<td><div id="forma2" style="display:none">
+{$f2}
+</div>
+<div id="forma1" style="display:none">
+{$f1}
+</div>
+</td>
+    </tr>
+</table>
+{include file="pie.html"}
+{literal}
+<script>
+function flash(a,b)
+{
+    document.getElementById(a).style.setProperty("display","none","");
+    document.getElementById(b).style.setProperty("display","inline","")
+}
+</script>
+{/literal}

@@ -1,0 +1,97 @@
+{include file="cabecera.html" title="SS2526 - Ficha Comercio"}
+<h3>FICHA DE COMERCIO</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>Id</th>
+		<td>{$comercio.id}</td>
+	</tr>
+	<tr>
+		<th>Razón Social</th>
+		<td>{$comercio.razon_social}</td>
+	</tr>
+	<tr>
+		<th>Nombre Fantasia</th>
+		<td>{$comercio.nombre_fantasia}</td>
+	</tr>
+	{if $comercio.sucursal}
+	<tr>
+		<th>Sucursal</th>
+		<td>{$comercio.sucursal}</td>
+	</tr>
+	{/if}
+	{if $comercio.rif}
+	<tr>
+		<th>Rif</th>
+		<td>{$comercio.rif}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Dirección</th>
+		<td>{$comercio.direccion}</td>
+	</tr>
+	<tr>
+		<th>Estado</th>
+		<td>{$comercio.estado_nombre}</td>
+	</tr>
+	<tr>
+		<th>Ciudad</th>
+		<td>{$comercio.ciudad_id}</td>
+	</tr>
+	{if $comercio.tlf_local}
+	<tr>
+		<th>Telefono Fijo</th>
+		<td>{$comercio.tlf_local}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Tipo de Conexión</th>
+		<td>{$comercio.conexion_id}</td>
+	</tr>
+	{if $comercio.nro_cajas}
+	<tr>
+		<th>Nro de Cajas</th>
+		<td>{$comercio.nro_cajas}</td>
+	</tr>
+	{/if}
+	{if $comercio.nro_tienda}
+	<tr>
+		<th>Nro de Tienda</th>
+		<td>{$comercio.nro_tienda}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Banco Principal</th>
+		<td>{$comercio.banco_id}</td>
+	</tr>
+	{if $comercio.persona_contacto}
+	<tr>
+		<th>Persona Contacto</th>
+		<td>{$comercio.persona_contacto}</td>
+	</tr>
+	{/if}
+</table>
+{if $afiliado}
+</p>
+<h3>AFILIADOS</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+      <th>Banco</th>
+      <th>Afiliado</th>
+    </tr>
+	<tr>
+    {assign var="comercio" value=$afiliado} 
+	{section name=i loop=$comercio}
+		<tr>
+		<td>{$comercio[i].banco_nombre}</td>
+		<td>{$comercio[i].afiliado}</td>
+		</tr>
+	{/section}    
+    </tr>
+</table>
+{else}
+<h3>ESTE COMERCIO AÚN NO POSEE AFILIADOS</h3>
+{/if}
+<hr/>	
+<div id="boton" align="center"><a href="consmod_comercios.php"><img onmouseover='overlib("<strong>Volver</strong>",WIDTH, 70)' src="./imagenes/flecha_izquierda.gif" onmouseout='return nd();'/></a></div>
+</p>
+{include file="pie.html"}

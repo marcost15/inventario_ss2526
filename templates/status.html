@@ -1,0 +1,22 @@
+﻿{include file="cabecera.html" title="SS2526 - Status de Equipos"}
+<table width="90%">
+<tr>
+	<td>{$f1}
+	<div class="mensaje">{$smarty.session.mensaje}</div>
+</td>
+</tr>
+</table>
+<p></p>
+<div id="resultados">
+<table class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<tbody>
+{section name=i loop=$status}
+<tr>
+	<td>{$status[i].nombre}</td>
+	<td width="10%"><a href="?id={$status[i].id}"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></a></td>
+</tr>
+{/section}
+</tbody>
+</table>
+</div>
+{include file="pie.html"}

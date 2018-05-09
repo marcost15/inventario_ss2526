@@ -1,0 +1,36 @@
+{include file="cabecera.html" title="SS2526 - Historial de Eventos"}
+<div id="resultados">
+<h3>EVENTOS</h3>
+<p>
+<div id = "indice">Total de Eventos: {$n}</br>
+		{section name=z loop=$indice}
+		<a href="?id={$id}&li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}<a href="?id={$id}&accion=todos">[Todos]</a>
+	</div>
+</p>
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr> 
+		<th>&nbsp;</th>	
+		<th>&nbsp;</th>
+		<th>Fecha</th>
+		<th>Comercio</th>
+		<th>Personal</th>
+		<th>Tipo</th>
+		<th>Observacion</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <th>{$smarty.section.p.index_next}</th>
+		<td><a href="rp_detalle_eventos.php?id={$datos[p].id}"><img onmouseover='overlib("<strong>Examinar</strong>",WIDTH, 70)' src="./imagenes/ver.ico" onmouseout='return nd();'/></a></td>
+		<td><b>{$datos[p].fecha_e}</b></td>
+		<td>{$datos[p].comercio_id}</td>
+		<td>{$datos[p].personal_id}</td>
+		<td>{$datos[p].tipo}</td>
+		{if $datos[p].observacion}
+			<td>{$datos[p].observacion}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+</div>
+{include file="pie.html"}

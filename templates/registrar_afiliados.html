@@ -1,0 +1,82 @@
+﻿{include file="cabecera.html" title="SS2526 - Registrar Afiliados"}
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<table border="0">
+    <tr>
+	<td valign="top">
+<table border="0">
+<tbody>
+<th><font size=4>Comercio</font></th> 
+ <tr>
+      <td>
+      
+<table border="0">
+  <tbody>
+    <tr>
+      <th align="right">Razón Social:</th><td>{$smarty.session.comercio.datos_comercio.razon_social}</td>
+	</tr>
+	<tr>
+      <th align="right">Sucursal:</th><td>{$smarty.session.comercio.datos_comercio.sucursal}</td>
+	</tr>
+	<tr>
+      <th>&#160;</th><td><a href="#" onClick="flash('forma2','forma1')"><img onmouseover='overlib("<strong>Actualizar</strong>",WIDTH, 70)' src="./imagenes/boton_act.gif" onmouseout='return nd();'/></a></td>
+    </tr>
+  </tbody>
+</table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<table class="enhancedtable" width="90%" border="1" cellspacing="0" cellpadding = "3">
+  <thead>
+    <tr>
+	  <td colspan="3" align="center"><font size=4><strong>Afiliados</strong></font></td>
+	</tr>
+	<tr>
+      <th>Banco</th>
+      <th>Afiliado</th>
+	  <th><a href="#" onClick="flash('forma1','forma2')"><img onmouseover='overlib("<strong>Agregar &#237;tem</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="comercio" value=$smarty.session.comercio.datos_bancos} 
+{section name=i loop=$comercio}
+    <tr>
+      <td>{$comercio[i].banco_nombre}</td>
+      <td>{$comercio[i].afiliado}</td>
+	  <td><a href="?accion=eliminar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}    
+  </tbody>
+</table>
+<p>
+{if $items>0 and $items1>0}
+<font size=3><strong><a href="registrar_afiliados2.php" onClick="return confirm('Si los datos est&#225;n correctos pulse OK, de lo contrario Cancele y corrija')">Guardar los Afiliados<img onmouseover='overlib("<strong>Registrar</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></strong></font>
+</p>
+{/if}
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+<td><div id="forma2" style="display:none">
+{$f1}
+</div>
+<div id="forma1" style="display:none">
+{$f2}
+</div>
+</td>
+    </tr>
+</table>
+{include file="pie.html"}
+{literal}
+<script>
+function flash(a,b)
+{
+    document.getElementById(a).style.setProperty("display","none","");
+    document.getElementById(b).style.setProperty("display","inline","")
+}
+</script>
+{/literal}

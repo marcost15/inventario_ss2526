@@ -1,0 +1,176 @@
+#bannereporte {
+	display:none;
+}
+#fondo{
+    width:1050px;
+	background-color: #ffffff;
+	margin:auto;
+}
+#fondoreporte{
+	position: relative;
+	background-color: transparent;
+	margin:auto;
+	text-align::center;
+}
+#contenido{
+    width:880px;
+	background-color: #ffffff;
+	margin:auto;
+	float:right;
+	text-align:center;
+	min-height: 500px;
+}
+#contenido_sinmenu{
+    width:100%;
+	background-color:#ffffff;
+	margin:auto;
+	text-align:center;
+}
+#contenido_reporte{
+    width:1080px;
+	background-color: #ffffff;
+	margin:auto;
+	float:right;
+	text-align:center;
+	min-height: 500px;
+}
+#divmenu{
+    width:180px;
+	position: relative;
+}
+#pie{ 
+	text-align:center;
+	padding:15px;
+	clear: both;
+}
+/* Tablas
+***********************************************************/
+#resultados{
+	background-color: #EAEAEA;
+}
+tfoot th{
+	text-align:right;
+}
+.enhancedtable{
+	background:#EAEAEA;
+	border:1px solid #00000;
+	text-align: center;
+}
+.enhancedtable td,.enhancedtable th {
+	text-align: center;
+}
+.enhancedtablecolouredrow{
+	background:#28A7F2;
+}
+.enhancedtablerowhover{
+	background:#80CCFF;
+}
+.enhancedtableactive{
+	background:#fc6;
+}
+#resultadosxgrilla{
+	overflow: auto;
+	width:870px;
+	height: 532px;
+	background-color: #EAEAEA;
+	text-align: center;
+}
+/* Tablas
+***********************************************************/
+#indice{
+	text-align: center;
+	font-weight:bolder
+}
+a:link{color:#000000;text-decoration:underline}
+a:hover{color:#a71007;text-decoration:underline;}
+a:active{color:#a71007;font-weight:bolder} 
+a:visited{color:#000000;font-style:italic}
+
+
+#fondo table.ficha{
+	text-align: left;
+	border-collapse: collapse;
+	border: solid 2px #000000;
+}
+#fondo table.ficha th{
+	background-color:#0099CC;
+	font-weight:bolder
+}
+#titulo{
+	text-align:center;
+	background-color:#0066CC;
+	color:White;
+	font-weight:bold;
+	font-size:medium;
+	padding:1px;
+}
+h1,h2,h3,h4,h5{
+	text-align: center;
+	color: white;
+	background-color: #0099CC;
+}
+.abc{
+	text-align : center;
+	font-weight:bolder;
+	text-decoration: none;	
+}
+.mensaje{
+	width : 100%;
+	background-color: transparent;
+	text-align : center;
+	font-weight:bolder;
+	font-size:medium;
+	color:red;
+}
+#foto15{
+	width : 20%;
+	background-color: #FFFFFF;
+	float : right;
+	text-align : center;
+}
+#documentos{
+	width : 100%;
+	font-size:medium;
+	font-family:arial;
+	line-height : 35px;
+	text-align:justify;
+}
+
+#busqueda2{
+	width : 50%;
+	float : left;
+	background-color: #FFFFFF;
+}
+#busqueda3{
+	background-color: #FFFFFF;
+	float:right;
+	width : 50%;
+}
+
+#fondo table.firma{
+	text-align : center;
+}
+table.sortable a img {
+    border: 0;
+  }
+
+table.sortable tr.even td {
+    background-color: #ffffff;
+  }
+
+table.sortable tr.odd td {
+    background-color: #ffffff;
+}
+
+.listado {
+    border : transparent solid 1px;
+  }
+
+.listadob {
+    border : black solid 1px;
+    background : white;
+  }
+
+.listado,.listadob {
+/*    background-color : lightgrey;*/
+  }

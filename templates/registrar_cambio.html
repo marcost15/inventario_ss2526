@@ -1,0 +1,98 @@
+﻿{include file="cabecera.html" title="SS2526 - Registrar Cambios de Equipos"}
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<table border="0">
+ <tr>
+	<td valign="top">
+<table border="0">
+<tbody>
+<th><font size=4>Comercio</font></th> 
+ <tr>
+      <td>
+      
+<table border="0">
+  <tbody>
+    <tr>
+      <th align="right">Razón Social:</th><td>{$smarty.session.comerciocambio.razon_social}</td>
+	</tr>
+	<tr>
+      <th align="right">Sucursal:</th><td>{$smarty.session.comerciocambio.sucursal}</td>
+	</tr>
+	<tr>
+      <th align="right">Fecha:</th><td>{$smarty.session.comerciocambio.fecha_e}</td>
+	</tr>
+	<tr>
+      <th align="right">Observacion:</th><td>{$smarty.session.comerciocambio.observacion}</td>
+	</tr>
+	<tr>
+	  <th>&#160;</th><td><a href="#" onClick="flash('forma1','forma2')"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton_act.gif" onmouseout='return nd();'/></a></td>
+    </tr>
+  </tbody>
+</table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+<td><div id="forma1" style="display:none">
+{$f1}
+</div>
+</td>
+    </tr>
+</table>
+</p>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+  <thead>
+    <tr>
+	  <td colspan="7" align="center"><font size=4><strong>Equipos</strong></font></td>
+	</tr>
+	<tr>
+      <th>Articulo</th>
+      <th>Reemplazado</th>
+	  <th>Reemplazo</th>
+	  <th>Cantidad</th>
+	  <th>Razón</th>
+	  <th><a href="#" onClick="flash('forma2','forma1')"><img onmouseover='overlib("<strong>Agregar &#237;tem</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="equipos" value=$smarty.session.equiposcambio} 
+{section name=i loop=$equipos}
+    <tr>
+      <td>{$equipos[i].descripcion}</td>
+      <td>{$equipos[i].reemplazado}</td>
+	  <td>{$equipos[i].reemplazo_serial}</td>
+	  <td>{$equipos[i].cantidad}</td>
+	  <td>{$equipos[i].razon_nombre}</td>
+	  <td><a href="?accion=eliminar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}    
+  </tbody>
+</table>
+<p></p>
+{if $items>0 and $items1>0}
+<table border="0" width="100%">
+	<tr> 
+		<td align="center">
+			<font size="3"><strong><a href="registrar_cambio2.php" onClick="return confirm('Si los datos est&#225;n correctos pulse OK, de lo contrario Cancele y corrija')">Guardar Reemplazos<img onmouseover='overlib("<strong>Asignar</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></strong></font>
+		</td>
+	</tr>
+</table>
+{/if}
+</P>
+<div id="forma2" style="display:none">
+{$f2}
+</div>
+<p>&nbsp;</p>
+{include file="pie.html"}
+{literal}
+<script>
+function flash(a,b)
+{
+    document.getElementById(a).style.setProperty("display","inline","")
+	document.getElementById(b).style.setProperty("display","none","");
+}
+</script>
+{/literal}

@@ -1,0 +1,35 @@
+{include file="cabecera.html" title="SS2526 - Entrega de Articulos a Proveedor"}
+<div id="resultados">
+<h3>Entrega de Articulos a Proveedor</h3>
+<p>
+</p>
+{if $datos}
+<form
+	action="registrar_dev_proveedor2.php" 
+	name="devolucion_pro" 
+	method="post" 
+	onsubmit="return confirm('Est&#225;n todos los datos correctos.? Este paso es IRREVERSIBLE')">
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>&nbsp;</th>	
+		<th>Articulo</th>
+	    <th>Serial</th>
+		<th>Seleccione</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+		<th>{$smarty.section.p.index_next}</th>
+	    <td>{$datos[p].nombre}</td>
+		<td>{$datos[p].serial}</td>
+		<td align="center" valign="middle"><input type="checkbox" name="devolucion_pro[]" id="datos_{$smarty.section.i.index}" value="{$datos[p].serial}"/></td>
+	</tr>{/section}
+	<tr> 
+		<th colspan = "4"><input type="submit" name="Entregar" value="Entregar a Proveedor" /></th>
+	</tr>
+</table>
+</form>
+{else}
+<h3>NO TIENE ARTICULOS PARA ENTREGAR...</h3>
+{/if}
+</div>
+{include file="pie.html"}

@@ -1,0 +1,65 @@
+{include file="cabecera.html" title="SS2526 - Inventario"}
+<div id="resultados">
+<h3>INVENTARIO GENERAL</h3>
+<p>
+</p>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>Articulo</th>
+	    <th>Almacenados</th>
+		<th>Asignados</th>
+		<th>Instalados</th>
+		<th>Cambiados</th>
+		<th>Desinstalados</th>
+		<th>Entregados</th>
+		<th>Totales</th>
+		
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <td>{$datos[p].descripcion}</td>
+		{if $datos[p].alm}
+			<td>{$datos[p].alm}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].asig}
+			<td>{$datos[p].asig}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].inst}
+			<td>{$datos[p].inst}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].camb}
+			<td>{$datos[p].camb}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].desinst}
+			<td>{$datos[p].desinst}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].entregados}
+			<td>{$datos[p].entregados}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		<td>{$datos[p].total}</td>
+	</tr>{/section}
+	<tr> 
+		<th>Totales</th>
+	    <th>{$totalalm}</th>
+		<th>{$totalasig}</th>
+		<th>{$totalinst}</th>
+		<th>{$totalcamb}</th>
+		<th>{$totaldesint}</th>
+		<th>{$totalentregados}</th>
+		<th>{$totaltotal}</th>
+	</tr>
+</table>
+</div>
+{include file="pie.html"}

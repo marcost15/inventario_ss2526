@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<link rel="icon" href="./imagenes/favicon.ico" type="image/x-icon" /> 
+		<link rel="shortcut icon" href="./imagenes/favicon.ico" type="image/x-icon" /> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="robots" content="noindex,nofollow" />
+		<title>{$title|default:Solutions_Systems_2526}</title>
+		<script type="text/javascript" src="./js/highlight.js"></script>
+		<script type="text/javascript" src="./js/domtableenhance.js"></script>
+		<script type="text/javascript" src="../libreriasphp/FH3/FHTML/overlib/overlib.js"></script>
+		<link rel="stylesheet" type="text/css" href="./estilo/layout.css"/> 
+		<link rel="stylesheet" type="text/css" href="./estilo/layoutprint.css" media="print"/>
+		<link rel="stylesheet" type="text/css" href="./estilo/menu.css"/>
+	</head> 
+	<body background="./imagenes/fondoazul.jpg" topmargin="0" leftmargin="0"> 
+		{if $fondoreporte eq '1'}
+		<div id="fondoreporte">
+		<div id="bannereporte"><img src="./imagenes/bannereporte_horizontal.png" align="center" width="1050" height="100"/></div>
+		{else}
+		<div id="fondo">
+		<div id="bannereporte"><img src="./imagenes/bannereporte.png" align="center" width="710" height="70"/></div>
+		{/if}
+			<div id="banner1" align="center"><img src="./imagenes/banner.png" width="1050" height="100"/></div><!-- banner1-->
+			<div id="titulo">Sistema Administrativo de SS2526 C.A v3.0  {if $smarty.session.usuario}[Usuario: {$smarty.session.usuario.nombre} {$smarty.session.usuario.apellido}]{/if}</div><!-- titulo -->				
+			{if $smarty.session.usuario}<div id="divmenu"><ul id="css3menu">{include file="../menu/menu.html"}</ul></div><!-- divmenu --> {/if}
+		{if $smarty.session.usuario}
+			{if $fondoreporte eq '1'}
+				<div id="contenido_reporte">
+			{else}
+				<div id="contenido">
+			{/if}
+		{else}
+			<div id="contenido_sinmenu">
+		{/if}
+<!-- Contenido -->

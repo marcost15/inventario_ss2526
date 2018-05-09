@@ -1,0 +1,115 @@
+﻿{include file="cabecera.html" title="SS2526 - Registrar Instalacion"}
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<table border="0">
+ <tr>
+	<td valign="top">
+<table border="0">
+<tbody>
+<th><font size=4>Comercio</font></th> 
+ <tr>
+      <td>
+      
+<table border="0">
+  <tbody>
+    <tr>
+      <th align="right">Razón Social:</th><td>{$smarty.session.comercio.razon_social}</td>
+	</tr>
+	<tr>
+      <th align="right">Sucursal:</th><td>{$smarty.session.comercio.sucursal}</td>
+	</tr>
+	<tr>
+      <th align="right">Fecha:</th><td>{$smarty.session.comercio.fecha_e}</td>
+	</tr>
+	<tr>
+      <th align="right">Observacion:</th><td>{$smarty.session.comercio.observacion}</td>
+	</tr>
+	<tr>
+	  <th>&#160;</th><td><a href="#" onClick="flash('forma1','forma2')"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton_act.gif" onmouseout='return nd();'/></a></td>
+    </tr>
+  </tbody>
+</table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+<td><div id="forma1" style="display:none">
+{$f1}
+</div>
+</td>
+    </tr>
+</table>
+{if $smarty.session.comercio.equipos}
+<table class="enhancedtable" border="1" cellspacing="0" cellpadding = "3" align="center">
+  <thead>
+    <tr>
+	  <td colspan="3" align="center"><font size=4><strong>Equipos</strong></font></td>
+	</tr>
+	<tr>
+      <th>Articulo</th>
+      <th>Serial</th>
+	   <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="equipos_serial" value=$smarty.session.comercio.nombre} 
+{section name=i loop=$equipos_serial}
+    <tr>
+      <td>{$equipos_serial[i].descripcion}</td>
+      <td>{$equipos_serial[i].serial}</td>
+	  <td><a href="?accion=borrar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}    
+  </tbody>
+</table>
+{/if}
+<p></p>
+{if $items > 0}
+<table border="0" width="100%">
+<tr> 
+<td align="center">
+<font size="3"><strong><a href="registrar_instalacion2.php" onClick="return confirm('Si los datos est&#225;n correctos pulse OK, de lo contrario Cancele y corrija')">Guardar Instalación<img onmouseover='overlib("<strong>Guardar Instalación</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></strong></font>
+</td>
+</tr>
+</table>
+{/if}
+</P>
+<table class="enhancedtable" border="1" cellspacing="0" cellpadding = "3" align="center">
+  <thead>
+    <tr>
+	  <td colspan="3" align="center"><font size=4><strong>Accesorios</strong></font></td>
+	</tr>
+	<tr>
+      <th>Articulo</th>
+      <th>Cantidad</th>
+	  <th><a href="#" onClick="flash('forma2','forma1')"><img onmouseover='overlib("<strong>Agregar &#237;tem</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="equipos_acces" value=$smarty.session.accesorios} 
+{section name=i loop=$equipos_acces}
+    <tr>
+      <td>{$equipos_acces[i].articulo_nombre}</td>
+      <td>{$equipos_acces[i].cantidad}</td>
+	  <td><a href="?accion=eliminar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}    
+  </tbody>
+</table>
+<div id="forma2" style="display:none">
+{$f2}
+</div>
+<p>&nbsp;</p>
+{include file="pie.html"}
+{literal}
+<script>
+function flash(a,b)
+{
+    document.getElementById(a).style.setProperty("display","inline","")
+	document.getElementById(b).style.setProperty("display","none","");
+}
+</script>
+{/literal}

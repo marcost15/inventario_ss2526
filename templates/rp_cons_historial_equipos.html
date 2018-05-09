@@ -1,0 +1,131 @@
+{include file="cabecera.html" title="SS2526 - Historial Equipo"}
+<div id="resultados">
+<h3>HISTORIAL DE MOVIMIENTO DE EQUIPO</h3>
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<table border="0">
+	<tr> 
+		<th>Articulo</th>
+		<td>{$articulo}</td>
+	</tr>
+	<tr> 
+		<th>Serial</th>
+		<td>{$id}</td>
+	</tr>
+</table>
+<p>
+</p>
+{if $entradas}
+<h3>ENTRADA</h3>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>Fecha</th>
+		<th>Proveedor</th>
+		<th>Personal</th>
+		<th>Deposito</th>
+		<th>Observacion</th>
+	</tr>
+	{section name=p loop=$entradas}
+	<tr>
+	    <td>{$entradas[p].fecha}</td>
+		<td>{$entradas[p].proveedor_id}</td>
+		<td>{$entradas[p].personal_id}</td>
+		<td>{$entradas[p].deposito_id}</td>
+		{if $entradas[p].observacion}
+			<td>{$entradas[p].observacion}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+{/if}
+<p>
+</p>
+{if $asignacion}
+<h3>ASIGNACION</h3>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>Fecha</th>
+		<th>Entrega</th>
+		<th>Recibe</th>
+		<th>Observacion</th>
+	</tr>
+	{section name=p loop=$asignacion}
+	<tr>
+	    <td>{$asignacion[p].fecha}</td>
+		<td>{$asignacion[p].entrepersonal_id}</td>
+		<td>{$asignacion[p].recibepers_id}</td>
+		{if $asignacion[p].observacion}
+			<td>{$asignacion[p].observacion}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+{/if}
+<p>
+</p>
+{if $eventos}
+<h3>REEMPLAZO - INSTALACION - DESINSTALACION</h3>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>Fecha Evento</th>
+		<th>Fecha Registro</th>
+		<th>Afiliado</th>
+		<th>Comercio</th>
+		<th>Personal</th>
+		<th>Tipo</th>
+		<th>Reemplazo</th>
+		<th>Observacion</th>
+	</tr>
+	{section name=p loop=$eventos}
+	<tr>
+	    <td>{$eventos[p].fecha_e}</td>
+		<td>{$eventos[p].fecha}</td>
+		<td>{$eventos[p].afiliado}</td>
+		<td>{$eventos[p].comercio_id}</td>
+		<td>{$eventos[p].personal_id}</td>
+		<td>{$eventos[p].tipo}</td>
+		{if $eventos[p].reemplazado}
+			{if $eventos[p].reemplazado}
+				<td>{$eventos[p].reemplazado}</td>
+			{else}
+				<td>&nbsp;</td>
+			{/if}
+		{else}
+			{if $eventos[p].reemplazo}
+				<td>{$eventos[p].reemplazo}</td>
+			{else}
+				<td>&nbsp;</td>
+			{/if}
+		{/if}
+		{if $eventos[p].observacion}
+			<td>{$eventos[p].observacion}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+{/if}
+<p>
+</p>
+{if $devoluciones}
+<h3>DEVOLUCION A STOCK - PROVEEDOR</h3>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>Fecha</th>
+		<th>Personal</th>
+		<th>Tipo</th>
+	</tr>
+	{section name=p loop=$devoluciones}
+	<tr>
+	    <td>{$devoluciones[p].fecha}</td>
+		<td>{$devoluciones[p].personal_id}</td>
+		<td>{$devoluciones[p].tipo}</td>
+	</tr>{/section}
+</table>
+{/if}
+</div>
+{include file="pie.html"}

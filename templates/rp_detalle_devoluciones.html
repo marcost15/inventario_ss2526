@@ -1,0 +1,60 @@
+{include file="cabecera.html" title="SS2526 - Articulos de la Devolucion"}
+<div id="resultados">
+<h3>DEVOLUCION</h3>
+<p>
+<div id = "indice">Fecha: {$devolucion.fecha} - Tipo: {$devolucion.tipo}<br> Personal: {$devolucion.personal_id}<br>Total de Articulos:{$n}</br>
+		{section name=z loop=$indice}
+		<a href="?id={$id}&tipo={$tipo}&li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}
+		<a href="?id={$id}&tipo={$tipo}&accion=todos">[Todos]</a>
+	</div>
+</p>
+{if $tipo eq 'SS'}
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr> 
+		<th>&nbsp;</th>
+		<th>Articulo</th>
+		<th>Serial</th>
+		<th>Cant</th>
+		<th>Func</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <th>{$smarty.section.p.index_next}</th>
+		<td>{$datos[p].arti_id}</td>
+		<td>{$datos[p].serial}</td>
+		<td>{$datos[p].cantidad}</td>
+		<td>{if $datos[p].funciona eq '1'}NO{else}SI{/if}</td>
+	</tr>{/section}
+</table>
+{/if}
+{if $tipo eq 'PROVEEDOR'}
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr> 
+		<th>&nbsp;</th>
+		<th>Articulo</th>
+		<th>Serial</th>
+		<th>Afiliado</th>
+		<th>Comercio</th>
+		<th>Fecha Evento</th>
+		<th>Tipo Evento</th>
+		<th>Reemplazo</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <th>{$smarty.section.p.index_next}</th>
+		<td>{$datos[p].arti_id}</td>
+		<td>{$datos[p].serial}</td>
+		<td>{$datos[p].afiliado}</td>
+		<td>{$datos[p].comercio}</td>
+		<td>{$datos[p].fecha_e}</td>
+		<td>{$datos[p].tipo}</td>
+		{if $datos[p].reemplazado}
+			<td>{$datos[p].reemplazado}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+{/if}
+</div>
+{include file="pie.html"}

@@ -1,0 +1,40 @@
+{include file="cabecera.html" title="SS2526 - Articulos del Evento"}
+<div id="resultados">
+<h3>EVENTO</h3>
+<p>
+<div id = "indice">Fecha de Registro: {$eventos.fecha} - Fecha del Evento:{$eventos.fecha_e}</br> 
+Personal: {$eventos.personal_id}</br>Observación: {$eventos.observacion}</br>
+Comercio: {$eventos.comercio_id} - Afiliado: {$afiliado}</br> Total de Articulos:{$n}</br>
+		{section name=z loop=$indice}
+		<a href="?id={$id}&li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}<a href="?id={$id}&accion=todos">[Todos]</a>
+	</div>
+</p>
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr> 
+		<th>&nbsp;</th>
+		<th>Articulo</th>
+		<th>Serial</th>
+		<th>Cant</th>
+		{if $tipo eq 'DESINSTALACION'}
+		<th>Func</th>
+		{/if}
+		{if $tipo eq 'CAMBIO'}
+		<th>Reemplazado</th>
+		{/if}
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <th>{$smarty.section.p.index_next}</th>
+		<td>{$datos[p].articulo_id}</td>
+		<td>{$datos[p].serial}</td>
+		<td>{$datos[p].cantidad}</td>
+		{if $tipo eq 'DESINSTALACION'}
+		<td>{if  $datos[p].funciona eq '1'}NO{else}SI{/if}</td>
+		{/if}
+		{if $tipo eq 'CAMBIO'}
+		<td>{$datos[p].reemplazado}</td>
+		{/if}
+	</tr>{/section}
+</table>
+</div>
+{include file="pie.html"}

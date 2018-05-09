@@ -1,0 +1,28 @@
+{include file="cabecera.html" title="SS2526 - Articulos de la Asignacion"}
+<div id="resultados">
+<h3>ASIGNACIÓN</h3>
+<p>
+<div id = "indice">Fecha: {$asignacion.fecha} - Entrega :{$asignacion.entrepersonal_id}</br> Recibe: {$asignacion.recibepers_id}</br>
+Observación: {$asignacion.observacion}</br> Total de Articulos:{$n}</br>
+		{section name=z loop=$indice}
+		<a href="?id={$id}&li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}<a href="?id={$id}&accion=todos">[Todos]</a>
+	</div>
+</p>
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr> 
+		<th>&nbsp;</th>
+		<th>Articulo</th>
+		<th>Serial</th>
+		<th>Cant</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+	    <th>{$smarty.section.p.index_next}</th>
+		<td>{$datos[p].articulo_id}</td>
+		<td>{$datos[p].serial}</td>
+		<td>{$datos[p].cantidad}</td>
+	</tr>{/section}
+</table>
+</div>
+</p>
+{include file="pie.html"}

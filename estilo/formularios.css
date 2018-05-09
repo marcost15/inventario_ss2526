@@ -1,0 +1,101 @@
+/* Formularios
+***********************************************************/
+fieldset{
+
+    background:#dfdfdf;
+    border:none;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    margin:0;
+    margin-bottom:-25px;
+}
+
+form[id=login] fieldset{
+    margin-left:300px;
+    width:230px;
+}
+
+legend{
+    margin-bottom:-10px;
+    margin-top:15px;
+}
+
+input, textarea,select {
+    border:none;
+    padding:5px;
+    width:90%;
+    background-color:#EAEAEA;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+}
+select {
+    padding-right:0;
+}
+
+
+input[type=submit]{
+    width:100%;
+    padding:5px;
+    background-color:#bbb;
+    color:black;
+    text-align:center;
+    border:solid #999999 2px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+}
+
+input:focus, textarea:focus,select:focus {
+    /*border: 2px solid #000;*/
+    background: #CBCDCF;
+    color:#000;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+
+}
+
+fieldset table{
+    margin-top:4px;
+}
+fieldset th{
+    text-align:left;
+    border:solid #999 1px;
+    border-bottom:none;
+    padding:3px;
+    margin:0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+fieldset td{
+    text-align:left;
+    border:solid #999 1px;
+    background-color:#fff;
+    padding:3px;
+    margin:0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+.error{
+color:red;
+display:block;
+}
+
+select[id="fecha_day"],
+select[id="hora_hour"],
+select[id="hora_minute"]
+{
+    width:3.5em;
+}
+
+select[id="fecha_month"]{
+    width:8em;
+}
+
+select[id="fecha_year"]{
+    width:5em;
+}

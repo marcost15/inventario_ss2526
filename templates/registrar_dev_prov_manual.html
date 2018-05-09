@@ -1,0 +1,54 @@
+﻿{include file="cabecera.html" title="SS2526 - Registrar Devolucion a Proveedor"}
+{if $smarty.session.mensaje}
+</p>
+<div class="mensaje">{$smarty.session.mensaje}</div>
+{/if}
+<h3><font size=4>Devolución Equipos a Proveedor</font></h3> 
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+  <thead>
+    <tr>
+	  <td colspan="7" align="center"><font size=4><strong>Equipos</strong></font></td>
+	</tr>
+	<tr>
+      <th>Articulo</th>
+      <th>Serial</th>
+	  <th>Cantidad</th>
+	  <th><a href="#" onClick="flash('forma1')"><img onmouseover='overlib("<strong>Agregar &#237;tem</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></th>
+    </tr>
+  </thead>
+  <tbody>
+{assign var="equipos" value=$smarty.session.dev_pro_manual} 
+{section name=i loop=$equipos}
+    <tr>
+      <td>{$equipos[i].articulo_nombre}</td>
+      <td>{$equipos[i].serial}</td>
+	  <td>{$equipos[i].cantidad}</td>
+	  <td><a href="?accion=eliminar&amp;id={$smarty.section.i.index}"><img onmouseover='overlib("<strong>Eliminar</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+    </tr>
+{/section}    
+  </tbody>
+</table>
+<p></p>
+{if $items>0}
+<table border="0" width="100%">
+	<tr> 
+		<td align="center">
+			<font size="3"><strong><a href="registrar_dev_prov_manual2.php" onClick="return confirm('Si los datos est&#225;n correctos pulse OK, de lo contrario Cancele y corrija')">Guardar Devolución a Proveedor<img onmouseover='overlib("<strong>Asignar</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></strong></font>
+		</td>
+	</tr>
+</table>
+{/if}
+</P>
+<div id="forma1" style="display:none">
+{$f1}
+</div>
+<p>&nbsp;</p>
+{include file="pie.html"}
+{literal}
+<script>
+function flash(a)
+{
+    document.getElementById(a).style.setProperty("display","inline","")
+}
+</script>
+{/literal}

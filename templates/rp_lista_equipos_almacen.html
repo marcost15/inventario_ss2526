@@ -1,0 +1,25 @@
+{include file="cabecera.html" title="SS2526 - Lista de Equipos en Almacen"}
+<div id="resultados">
+<h3>INVENTARIO DE EQUIPOS EN ALMACEN</h3>
+<p>
+<div id = "indice" >Total de Equipos: {$n}</br>
+		{section name=z loop=$indice}
+		<a href="?li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}
+		<a href="rp_lista_equipos_almacen.php?accion=todos">[Todos]</a>
+</div>
+</p>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>&nbsp;</th>	
+		<th>Articulos</th>
+		<th>Serial</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+		<th>{$smarty.section.p.index_next}</th>
+	    <td>{$datos[p].articulo_id}</td>
+		<td>{$datos[p].serial}</td>
+	</tr>{/section}
+</table>
+</div>
+{include file="pie.html"}

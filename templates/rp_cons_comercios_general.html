@@ -1,0 +1,60 @@
+{include file="cabecera.html" title="SS2526 - Lista de Comercios"}
+<div id="resultados">
+<h3>Comercios</h3>
+</p>
+<div id = "indice"> Total de Comercios: {$n}</br></p>
+		{section name=z loop=$indice}
+		<a href="?li={$indice[z].li}">[{$indice[z].li}-{$indice[z].ls}]</a> {/section}<a href="rp_cons_comercios_general.php?accion=todos">[Todos]</a>
+	</div>
+</p>
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th>&nbsp;</th>	
+		<th>Razon Social</th>
+		<th>Nombre Fantasia</th>
+		<th>Rif</th>
+		<th>Sucursal</th>
+		<th>Estado</th>
+		<th>Persona Contacto</th>
+		<th>Telefono</th>
+		<th># Cajas</th>
+		<th>Tipo Conex</th>
+		<th># Tienda</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+		<th>{$smarty.section.p.index_next}</th>
+	    <td>{$datos[p].razon_social}</td>
+		<td>{$datos[p].nombre_fantasia}</td>
+		{if $datos[p].rif}
+			<td>{$datos[p].rif}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		<td>{$datos[p].sucursal}</td>
+		<td>{$datos[p].estado}</td>
+		{if $datos[p].persona_contacto}
+			<td>{$datos[p].persona_contacto}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].tlf_local}
+			<td>{$datos[p].tlf_local}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		{if $datos[p].nro_cajas}
+			<td>{$datos[p].nro_cajas}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+		<td>{$datos[p].conexion_id}</td>
+		{if $datos[p].nro_tienda}
+			<td>{$datos[p].nro_tienda}</td>
+		{else}
+			<td>&nbsp;</td>
+		{/if}
+	</tr>{/section}
+</table>
+</div>
+{include file="pie.html"}

@@ -1,0 +1,37 @@
+{include file="cabecera.html" title="SS2526 - Ficha Clientes"}
+<h3>FICHA DE CLIENTES</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>Rif</th>
+		<td>{$ficha.id}</td>
+	</tr>
+	<tr>
+		<th>Razón Social</th>
+		<td>{$ficha.razon}</td>
+	</tr>
+	<tr>
+		<th>Dirección</th>
+		<td>{$ficha.direccion}</td>
+	</tr>
+	{if $ficha.tlf_fijo}
+	<tr>
+		<th>Telefono Fijo</th>
+		<td>{$ficha.tlf_fijo}</td>
+	</tr>
+	{/if}
+	{if $ficha.tlf_movil}
+	<tr>
+		<th>Telefono Movil</th>
+		<td>{$ficha.tlf_movil}</td>
+	</tr>
+	{/if}
+	{if $ficha.correo}
+	<tr>
+		<th>Correo electronico</th>
+		<td>{$ficha.correo}</td>
+	</tr>
+	{/if}
+</table>
+<hr/>	
+<div id="boton" align="center"><a href="consmod_clientes.php"><img onmouseover='overlib("<strong>Volver</strong>",WIDTH, 70)' src="./imagenes/flecha_izquierda.gif" onmouseout='return nd();'/></a></div>
+{include file="pie.html"}

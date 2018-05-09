@@ -1,0 +1,79 @@
+/* Tablas
+***********************************************************/
+/*
+Coffee with milk
+Table design by Roger Johansson, 456 Berea Street
+www.456bereastreet.com
+================================================*/
+
+.tabla table {
+ font:normal 110%/120%;
+ border-collapse:separate;
+ border-spacing:0;
+ margin:0 0 1em;
+ color:#000;
+ }
+.tabla table a {
+ color:#523A0B;
+ text-decoration:none;
+ border-bottom:1px dotted;
+ }
+.tabla table a:visited {
+ color:#444;
+ font-weight:normal;
+ }
+/*.tabla table a:visited:after {
+ content:"\00A0\221A";
+ }*/
+.tabla table a:hover {
+ border-bottom-style:solid;
+ }
+.tabla thead th,
+.tabla thead td,
+.tabla tfoot th,
+.tabla tfoot td {
+ border:1px solid #523A0B;
+ border-width:1px 0;
+ background:#EBE5D9;
+ }
+.tabla th {
+ font-weight:bold;
+ line-height:normal;
+ padding:0.25em 0.5em;
+ text-align:left;
+ }
+.tabla tbody th,
+.tabla td {
+ padding:0.25em 0.5em;
+ text-align:left;
+ vertical-align:top;
+ }
+.tabla tbody th {
+ white-space:nowrap;
+ }
+.tabla tbody th a:link,
+.tabla tbody th a:visited {
+ font-weight:bold;
+ }
+.tabla tbody td,
+.tabla tbody th {
+ border:1px solid #fff;
+ border-width:1px 0;
+ }
+.tabla tbody tr.odd th,
+.tabla tbody tr.odd td {
+ border-color:#EBE5D9;
+ background:#F7F4EE;
+ }
+.tabla tbody tr:hover td,
+.tabla tbody tr:hover th {
+ background:#003399;
+ border-color:#523A0B;
+ }
+.tabla caption {
+ font-weight:normal;
+ font-size:110%;
+ text-align:left;
+ margin:0;
+ padding:0.5em 0.25em;
+ }

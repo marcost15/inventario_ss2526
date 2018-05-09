@@ -1,0 +1,24 @@
+{include file="cabecera.html" title="SS2526 - Recordatorios"}
+{$f1}
+<h3>Asuntos pendientes</h3>
+<div id="resultados">
+<table class="enhancedtable" border="1" cellspacing="3" cellpadding="3" width="100%">
+	<tr>
+		<th>Fecha</th>
+		<th>Persona</th>
+		<th>Asunto</th>
+		<th>&nbsp;</th>
+	</tr>
+	{section name=i loop=$lista}
+	<tr>
+		<td>{$lista[i].fecha}</td>
+		<td>{$lista[i].nombre}</td>
+		<td>{$lista[i].asunto}</td>
+		{if $lista[i].permiso eq 1}
+		<td><a href="eliminar_recordatorio.php?id={$lista[i].id}"><img onmouseover='overlib("<strong>Asunto Concluido</strong>",WIDTH, 70)' src="./imagenes/eliminar.png" onmouseout='return nd();'/></a></td>
+		{/if}
+	</tr>
+	{/section}
+</table>
+</div>
+{include file="pie.html"}

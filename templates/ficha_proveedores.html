@@ -1,0 +1,44 @@
+{include file="cabecera.html" title="SS2526 - Ficha Proveedores"}
+<h3>FICHA DE PROVEEDORES</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>Rif</th>
+		<td>{$ficha.rif}</td>
+	</tr>
+	<tr>
+		<th>Razón Social</th>
+		<td>{$ficha.razon_social}</td>
+	</tr>
+	<tr>
+		<th>Dirección</th>
+		<td>{$ficha.direccion}</td>
+	</tr>
+	{if $ficha.telf_fijo}
+	<tr>
+		<th>Telefono Fijo</th>
+		<td>{$ficha.telf_fijo}</td>
+	</tr>
+	{/if}
+	{if $ficha.fax}
+	<tr>
+		<th>Fax</th>
+		<td>{$ficha.fax}</td>
+	</tr>
+	{/if}
+	{if $ficha.correo}
+	<tr>
+		<th>Correo Electronico</th>
+		<td>{$ficha.correo}</td>
+	</tr>
+	{/if}
+	{if $ficha.persona_contacto}
+	<tr>
+		<th>Persona Contacto</th>
+		<td>{$ficha.persona_contacto}</td>
+	</tr>
+	{/if}
+</table>
+<hr/>	
+<div id="boton" align="center"><a href="consmod_proveedores.php"><img onmouseover='overlib("<strong>Volver</strong>",WIDTH, 70)' src="./imagenes/flecha_izquierda.gif" onmouseout='return nd();'/></a></div>
+</p>
+{include file="pie.html"}
